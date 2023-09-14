@@ -8,8 +8,8 @@ if [ -n "$1" ]; then
 else
     echo "No interface"
     exit 0
+fi
 
 ifconfig $INTERFACE $CLIENT_IP
 ifconfig | grep $INTERFACE
 ifconfig | grep $CLIENT_IP
-fi

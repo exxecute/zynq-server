@@ -40,7 +40,10 @@
 
 ### Config device command
 
-`sudo mkdir -d /run/media/[you]/ROOTFS/etc/ssh; sudo cp ./config/ssh-config/ssh_config /run/media/[you]/ROOTFS/etc/ssh`
+`sudo mkdir -d /run/media/[you]/ROOTFS/etc/ssh; 
+ sudo mkdir -d /run/media/[you]/ROOTFS/etc/ssh/ssh_config.d; 
+ sudo cp ./config/ssh-config/ssh_config /run/media/[you]/ROOTFS/etc/ssh; 
+ sudo cp ./config/ssh-config/zynq_server.conf /run/media/[you]/ROOTFS/etc/ssh/ssh_config;`
 
 ### Client config command
 
