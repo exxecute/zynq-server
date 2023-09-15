@@ -7,12 +7,13 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
-#define BYTE_MASK   (0xFFU)
-#define GET_BYTE(reg, shift)    ((reg >> shift) & BYTE_MASK)
+#define BYTE_MASK               (0xFFU)
+#define BITS_IN_BYTE            (8U)
+#define GET_BYTE(reg, shift)    ((reg >> (shift * BITS_IN_BYTE)) & BYTE_MASK)
 
-#define PORT        (22U)
-#define ADDRESS     (0xC2A87A73U)
-#define MAXLINE     (1024U)
+#define PORT                    (22U)
+#define ADDRESS                 (0xC2A87A73U)
+#define MAXLINE                 (1024U)
 
 int main(int argc,char** argv) {
         printf("Zynq server (15.1430)\n");
