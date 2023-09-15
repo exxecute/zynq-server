@@ -12,11 +12,12 @@
 #define GET_BYTE(reg, shift)    ((reg >> (shift * BITS_IN_BYTE)) & BYTE_MASK)
 
 #define PORT                    (22U)
-#define ADDRESS                 (0xC2A87A73U)
+#define ADDRESS                 ("192.168.122.115") // server address
 #define MAXLINE                 (1024U)
 
-int main(int argc,char** argv) {
-        printf("Zynq server (15.1430)\n");
+int main(void) 
+{
+        printf("Zynq server (15.1654)\n");
         int sockfd;
         char buffer[MAXLINE];
         char *hello = "Hello from server";
@@ -33,29 +34,18 @@ int main(int argc,char** argv) {
 
         printf("Filling server information\n");
         servaddr.sin_family = AF_INET; // IPv4 
-        servaddr.sin_addr.s_addr = ADDRESS;
+        servaddr.sin_addr.s_addr = inet_addr;
         servaddr.sin_port = htons(PORT);
-        printf("IPv4 req: %d.%d.%d.%d:%d\n", GET_BYTE(ADDRESS, 3), GET_BYTE(ADDRESS, 2),
-        GET_BYTE(ADDRESS, 1), GET_BYTE(ADDRESS, 0), PORT);
-        printf("IPv4 : %d.%d.%d.%d:%d\n", GET_BYTE(servaddr.sin_addr.s_addr, 3), GET_BYTE(servaddr.sin_addr.s_addr, 2),
-        GET_BYTE(servaddr.sin_addr.s_addr, 1), GET_BYTE(servaddr.sin_addr.s_addr, 0), servaddr.sin_port);
- 
-        int sport;
-        if(argc>1)
-        {
-            int sport;
-            sscanf(argv[1],"%d",&sport);
-            printf("port is %d\n",sport);
-            servaddr.sin_port=htons(sport);
-        }
+        printf("IPv4 req: %s:%d\n", ADDRESS, PORT);
 
         printf("Bind the socket with the server address\n");
-        printf("sockfd: %d", sockfd);
-        if ( bind(sockfd, (const struct sockaddr *)&servaddr,
-                        sizeof(servaddr)) < 0 )
+        printf("sockfd: %d\n", sockfd);
+        uint32_t bind_answer = bind(sockfd, (const struct sockaddr *)&servaddr,
+                        sizeof(servaddr));
+        if (bind_answer < 0 )
         {
-                printf("bind failed\n");
-                exit(EXIT_FAILURE);
+            printf("bind failed error: %d\n", bind_answer);
+            exit(EXIT_FAILURE);
         }
  
         int len, n,cport;
