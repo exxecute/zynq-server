@@ -2,7 +2,9 @@
 
 ## content
 
-- [Build commands](#build-commands)
+- [Build](#build)
+
+    - [Compiler link](#compiler-link)
 
     - [Build folder](#build-folder)
 
@@ -18,11 +20,20 @@
 
     - [Connect to zynq](#connect-to-zynq-by-ssh)
 
-## Build commands
+## Build
+
+- [Compiler link](#compiler-link)
 
 - [Build folder](#build-folder)
 
 - [Test build](#test-build)
+
+### Compiler link
+
+I used GCC for arm using cross-compiling
+
+Link:
+https://developer.arm.com/downloads/-/gnu-a
 
 ### Build folder
 
@@ -30,7 +41,17 @@
 
 ### Test build
 
-`cd build; gcc ../test/main.c -o test`
+**Not for arm!!!**
+
+`cd build; gcc ../test/Hello_World/main.c -o Hello_World`
+
+For arm:
+
+`<GCC compiler> ../test/Hello_World/main.c -o ARM_Hello_World`
+
+Command how I compile (**for example**):
+
+`'/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../test/main.c -o ARM_Hello_World`
 
 ## SSH
 
