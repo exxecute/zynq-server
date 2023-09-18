@@ -17,7 +17,7 @@
 
 int main(void) 
 {
-        printf("Zynq server (15.1654)\n");
+        printf("Zynq server (18.1055)\n");
         int sockfd;
         char buffer[MAXLINE];
         char *hello = "Hello from server";
@@ -34,19 +34,20 @@ int main(void)
 
         printf("Filling server information\n");
         servaddr.sin_family = AF_INET; // IPv4 
-        servaddr.sin_addr.s_addr = inet_addr;
+        servaddr.sin_addr.s_addr = inet_addr(ADDRESS);
         servaddr.sin_port = htons(PORT);
         printf("IPv4 req: %s:%d\n", ADDRESS, PORT);
 
         printf("Bind the socket with the server address\n");
         printf("sockfd: %d\n", sockfd);
-        uint32_t bind_answer = bind(sockfd, (const struct sockaddr *)&servaddr,
+        int bind_answer = bind(sockfd, (const struct sockaddr *)&servaddr,
                         sizeof(servaddr));
         if (bind_answer < 0 )
         {
             printf("bind failed error: %d\n", bind_answer);
             exit(EXIT_FAILURE);
         }
+        printf("Binding answer: %d\n", bind_answer);
  
         int len, n,cport;
         char addr_buffer[20];
