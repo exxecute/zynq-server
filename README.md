@@ -20,6 +20,8 @@
 
     - [Connect to zynq](#connect-to-zynq-by-ssh)
 
+- [Serial connection](#serial-connection)
+
 ## Build
 
 - [Compiler link](#compiler-link)
@@ -88,3 +90,11 @@ My interface was **eno1**
 `ssh -Tv -oHostKeyAlgorithms=+ssh-rsa root@192.168.122.115`
 
 password:**root**
+
+## Serial connection
+
+`sudo ./serial-connect.sh <dev>`
+
+example:
+
+`sudo ./serial-connect.sh /dev/ttyUSB0`
