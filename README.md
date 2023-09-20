@@ -10,6 +10,8 @@
 
     - [Test build](#test-build)
 
+    - [Main build](#main-build)
+
 - [SSH](#ssh)
 
     - [Config device command](#config-device-command)
@@ -30,6 +32,8 @@
 
 - [Test build](#test-build)
 
+- [Main build](#main-build)
+
 ### Compiler link
 
 I used GCC for arm using cross-compiling
@@ -49,11 +53,19 @@ https://developer.arm.com/downloads/-/gnu-a
 
 For arm:
 
-`<GCC compiler> ../test/Hello_World/main.c -o ARM_Hello_World`
+`cd build; <GCC compiler> ../test/Hello_World/main.c -o ARM_Hello_World`
 
 Command how I compile (**for example**):
 
-`'/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../test/main.c -o ARM_Hello_World`
+`cd build; '/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../test/main.c -o ARM_Hello_World`
+
+### Main build
+
+`cd build; <GCC compiler> ../src/main.c -o main`
+
+Command how I compile (**for example**):
+
+`cd build; '/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../src/main.c -o main`
 
 ## SSH
 
