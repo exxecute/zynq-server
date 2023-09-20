@@ -10,6 +10,8 @@
 
     - [Test build](#test-build)
 
+    - [Main build](#main-build)
+
 - [SSH](#ssh)
 
     - [Config device command](#config-device-command)
@@ -20,6 +22,8 @@
 
     - [Connect to zynq](#connect-to-zynq-by-ssh)
 
+- [Serial connection](#serial-connection)
+
 ## Build
 
 - [Compiler link](#compiler-link)
@@ -27,6 +31,8 @@
 - [Build folder](#build-folder)
 
 - [Test build](#test-build)
+
+- [Main build](#main-build)
 
 ### Compiler link
 
@@ -47,11 +53,19 @@ https://developer.arm.com/downloads/-/gnu-a
 
 For arm:
 
-`<GCC compiler> ../test/Hello_World/main.c -o ARM_Hello_World`
+`cd build; <GCC compiler> ../test/Hello_World/main.c -o ARM_Hello_World`
 
 Command how I compile (**for example**):
 
-`'/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../test/main.c -o ARM_Hello_World`
+`cd build; '/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../test/main.c -o ARM_Hello_World`
+
+### Main build
+
+`cd build; <GCC compiler> ../src/main.c -o main`
+
+Command how I compile (**for example**):
+
+`cd build; '/home/execute/arm gcc/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gcc' ../src/main.c -o main`
 
 ## SSH
 
@@ -88,3 +102,11 @@ My interface was **eno1**
 `ssh -Tv -oHostKeyAlgorithms=+ssh-rsa root@192.168.122.115`
 
 password:**root**
+
+## Serial connection
+
+`sudo ./serial-connect.sh <dev>`
+
+example:
+
+`sudo ./serial-connect.sh /dev/ttyUSB0`
