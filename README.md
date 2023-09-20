@@ -24,6 +24,12 @@
 
 - [Serial connection](#serial-connection)
 
+- [Tests](#tests)
+
+    - [Hello Worlds test](#hello-world-test)
+
+    - [Server test](#server-test)
+
 ## Build
 
 - [Compiler link](#compiler-link)
@@ -54,6 +60,8 @@ https://developer.arm.com/downloads/-/gnu-a
 For arm:
 
 `cd build; <GCC compiler> ../test/Hello_World/main.c -o ARM_Hello_World`
+
+`cd build; <GCC compiler> ../test/server_test/main.c -o ARM_Server_Test`
 
 Command how I compile (**for example**):
 
@@ -110,3 +118,18 @@ password:**root**
 example:
 
 `sudo ./serial-connect.sh /dev/ttyUSB0`
+
+## Tests
+
+- [Hello Worlds test](#hello-world-test)
+
+- [Server test](#server-test)
+
+### Hello World test
+
+Prints **Hello world** in terminal.
+For testing correct compiling.
+
+### Server test
+
+Recieves request message and sends answer message.
