@@ -9,7 +9,7 @@ int main(void)
 
     SERVER_API_init();
     int bytes = SERVER_API_wait_message();
-    printf("bytes: %d", bytes);
+    printf("bytes: %d\n", bytes);
 
     return 0;
 }

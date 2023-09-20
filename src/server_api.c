@@ -38,16 +38,20 @@ void SERVER_API_init(void)
 
     _reset_addresses();
 
+    _filling_server_info();
+
     SOCKET_API_bind_socket(_sockfd, (const struct sockaddr *)&_server_address,
                         sizeof(_server_address));
 }
 
 int SERVER_API_wait_message(void)
 {
-    printf("[Server API] waiting message..");
+    printf("[Server API] waiting message..\n");
     int len;
     int bytes = SOCKET_API_wait_message(_sockfd, (char *)_buffer, 2048,
                                 ( struct sockaddr *) &_client_address,
                                 &len);
+//    _buffer[bytes] = '\0';
+//    printf("Client : %s\n", _buffer);
     return bytes;
 }
