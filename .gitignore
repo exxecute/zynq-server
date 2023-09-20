@@ -1,5 +1,6 @@
 .directory
 .obsidian
+.vscode
 build
 
 ### C ###
