@@ -17,7 +17,7 @@
 
 int main(void) 
 {
-        printf("Zynq server (18.1055)\n");
+        printf("Zynq server (V0.01.20-09-23)\n");
         int sockfd;
         char buffer[MAXLINE];
         char *hello = "Hello from server";
