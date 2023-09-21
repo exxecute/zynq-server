@@ -51,7 +51,7 @@ int SERVER_API_wait_message(void)
     int bytes = SOCKET_API_wait_message(_sockfd, (char *)_buffer, 2048,
                                 ( struct sockaddr *) &_client_address,
                                 &len);
-//    _buffer[bytes] = '\0';
-//    printf("Client : %s\n", _buffer);
+    _buffer[bytes] = '\0';
+    printf("Client : %s\n", _buffer);
     return bytes;
 }
