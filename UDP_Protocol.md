@@ -1,5 +1,7 @@
 ## Protocol
 
+- [Information](#information)
+
 - [Requsts codes](#requests-codes)
 
 - [Test request](#test-request-0x01)
@@ -11,6 +13,20 @@
     - [Documents](#documents)
 
 - [File answer](#file-answer-0x82)
+
+### Information
+
+**0xc0** - start byte
+
+**0xce** - end byte
+
+data codes:
+
+| Encode   | Codes          |
+|----------|----------------|
+| 0xc0     | 0xdb, 0xdc     |
+| 0xdb     | 0xdb, 0xdd     |
+| 0xce     | 0xdb, 0xde     |
 
 ### Requests codes
 
@@ -35,22 +51,31 @@ Code for answer increments 0x80
 
 | Code      | Sign                                  |
 |-----------|---------------------------------------|
+| 0xc0      | Start byte                            |
+| Size      | Size                                  |
 | 0x01      | Test request code.                    |
 | Any 8-bit | Test information for printing.        |
+| 0xce      | End byte                              |
 
 ### Test answer 0x80
 
 | Code      | Sign                                  |
 |-----------|---------------------------------------|
+| 0xc0      | Start byte                            |
+| Size      | Size                                  |
 | 0x01      | Test answer code.                     |
 | Any 8-bit | Test information for printing.        |
+| 0xce      | End byte                              |
 
 ### File request 0x02
 
-| Code          | Sign                                                |
-|---------------|-----------------------------------------------------|
-| 0x02          | File request code.                                  |
-| Document code | [Document](#documents)                              |
+| Code          | Sign                                  |
+|---------------|---------------------------------------|
+| 0xc0          | Start byte                            |
+| Size          | Size                                  |
+| 0x02          | File request code.                    |
+| Document code | [Document](#documents)                |
+| 0xce          | End byte                              |
 
 #### Documents 
 
@@ -62,8 +87,10 @@ Code for answer increments 0x80
 
 ### File answer 0x82
 
-| Code          | Sign                                                |
-|---------------|-----------------------------------------------------|
-| 0x82          | File answer code.                                   |
-| Size          | Size information.                                   |
-| Document      | Document                                            |
+| Code          | Sign                                  |
+|---------------|---------------------------------------|
+| 0xc0          | Start byte                            |
+| Size          | Size                                  |
+| 0x82          | File answer code.                     |
+| Document      | Document                              |
+| 0xce          | End byte                              |
