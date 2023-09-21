@@ -44,11 +44,11 @@ void SERVER_API_init(void)
                         sizeof(_server_address));
 }
 
-int SERVER_API_wait_message(void)
+int SERVER_API_wait_message(uint8_t *__buffer, uint32_t size)
 {
     printf("[Server API] waiting message..\n");
     int len;
-    int bytes = SOCKET_API_wait_message(_sockfd, (char *)_buffer, 2048,
+    int bytes = SOCKET_API_wait_message(_sockfd, __buffer, size,
                                 ( struct sockaddr *) &_client_address,
                                 &len);
     _buffer[bytes] = '\0';
