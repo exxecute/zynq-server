@@ -4,7 +4,7 @@
 #include "protocol.h"
 #include "protocol_framebytes.h"
 
-static void _select_protocol_message_type(uint8_t *__package)
+static void _process_answer(uint8_t *__package, uint8_t *__answer_package)
 {
     PROTOCOL_start_head_t (*_head) = (PROTOCOL_start_head_t*) __package;
     printf("[PROTOCOL] Message type: ");
@@ -42,7 +42,14 @@ static uint8_t _validate_package(uint8_t *__package)
     return answer;
 }
 
-void PROTOCOL_process_message(uint8_t *__message)
+uint8_t PROTOCOL_process_package(uint8_t *__package, uint8_t *__answer_package)
 {
-    
+    uint8_t _validation = _validate_package(__package);
+
+    if(_validation)
+    {
+        _process_answer(__package, __answer_package);
+    }
+
+    return _validation;
 }

@@ -13,4 +13,6 @@ typedef enum PROTOCOL_code_t
     PROTOCOL_CODE_FILE = 0x02,
 }PROTOCOL_code_t;
 
+uint8_t PROTOCOL_process_package(uint8_t *__package, uint8_t *__answer_package);
+
 #endif /* PROTOCOL_H */
