@@ -43,7 +43,7 @@ Code for answer increments 0x80
 
 | Code   | Sign                                  |
 |--------|---------------------------------------|
-| 0x81   | [Test answer](#test-answer-0x80)      |
+| 0x81   | [Test answer](#test-answer-0x81)      |
 | 0x82   | [File answer](#file-answer-0x82)      |
 
 
@@ -57,13 +57,13 @@ Code for answer increments 0x80
 | Any 8-bit | Test information for printing.        |
 | 0xce      | End byte                              |
 
-### Test answer 0x80
+### Test answer 0x81
 
 | Code      | Sign                                  |
 |-----------|---------------------------------------|
 | 0xc0      | Start byte                            |
 | Size      | Size                                  |
-| 0x01      | Test answer code.                     |
+| 0x81      | Test answer code.                     |
 | Any 8-bit | Test information for printing.        |
 | 0xce      | End byte                              |
 
