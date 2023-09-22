@@ -1,4 +1,3 @@
-#include <stdint.h>
 #include <string.h>
 
 #include "slip_api.h"
@@ -52,13 +51,13 @@ uint8_t SLIP_code(uint8_t *__package, uint8_t __package_size, uint8_t *__coded_p
             default:
             {
                 __coded_package[_coded_counter] = __package[byte];
+                _coded_counter++;
                 break;
             }
         }
-        _coded_counter++;
     }
-    __coded_package[_coded_counter] = BYTE_CE;
-    return _coded_counter++;
+    __coded_package[_coded_counter++] = BYTE_CE;
+    return _coded_counter;
 }
 
 uint8_t SLIP_decode(uint8_t *__package, uint8_t __package_size, uint8_t *__encoded_package)
