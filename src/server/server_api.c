@@ -12,8 +12,6 @@ static struct sockaddr_in _client_address;
 
 static int _sockfd;
 
-static uint8_t _buffer[2048];
-
 void _reset_addresses(void)
 {
     memset(&_server_address, 0, sizeof(_server_address));
@@ -51,7 +49,5 @@ int SERVER_API_wait_message(uint8_t *__buffer, uint32_t size)
     int bytes = SOCKET_API_wait_message(_sockfd, __buffer, size,
                                 ( struct sockaddr *) &_client_address,
                                 &len);
-    _buffer[bytes] = '\0';
-    printf("Client : %s\n", _buffer);
     return bytes;
 }
