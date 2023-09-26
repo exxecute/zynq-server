@@ -4,7 +4,7 @@
 #include "protocol.h"
 #include "protocol_framebytes.h"
 
-static void _process_answer(uint8_t *__package, uint8_t *__answer_package)
+static uint8_t _process_answer(uint8_t *__package, uint8_t *__answer_package)
 {
     PROTOCOL_start_head_t (*_head) = (PROTOCOL_start_head_t*) __package;
     printf("[PROTOCOL] Message type: ");
@@ -26,12 +26,13 @@ static void _process_answer(uint8_t *__package, uint8_t *__answer_package)
             break;
         }
     }
+    return 0;
 }
 
-static uint8_t _validate_package(uint8_t *__package)
+static uint8_t _validate_package(uint8_t *__package, uint8_t __package_size)
 {
     PROTOCOL_start_head_t (*_head) = (PROTOCOL_start_head_t*) __package;
-    uint8_t _package_size = sizeof(__package) - (sizeof(PROTOCOL_start_head_t) + sizeof(PROTOCOL_end_head_t));
+    uint8_t _package_size = __package_size - (sizeof(PROTOCOL_start_head_t) + sizeof(PROTOCOL_end_head_t));
 
     uint8_t answer = true;
     if(_package_size != _head->package_size)
@@ -42,14 +43,15 @@ static uint8_t _validate_package(uint8_t *__package)
     return answer;
 }
 
-uint8_t PROTOCOL_process_package(uint8_t *__package, uint8_t *__answer_package)
+uint8_t PROTOCOL_process_package(uint8_t *__package, uint8_t __package_size, uint8_t *__answer_package)
 {
-    uint8_t _validation = _validate_package(__package);
+    uint8_t _validation = _validate_package(__package, __package_size);
 
+    uint8_t _answer_size = 0;
     if(_validation)
     {
-        _process_answer(__package, __answer_package);
+        _answer_size = _process_answer(__package, __answer_package);
     }
 
-    return _validation;
+    return _answer_size;
 }
