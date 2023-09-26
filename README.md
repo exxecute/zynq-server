@@ -1,4 +1,4 @@
-# zynq server V0.01.20-09-23
+# zynq server V0.01.26-09-23
 
 ## content
 
