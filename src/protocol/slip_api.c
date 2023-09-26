@@ -17,9 +17,9 @@
 #define CODE_CE_SECOND_BYTE (0xde)
 
 
-const uint8_t c0_code[] = {0xdb, 0xdc};
-const uint8_t db_code[] = {0xdb, 0xdd};
-const uint8_t ce_code[] = {0xdb, 0xde};
+const uint8_t c0_code[] = {CODE_FIRST_BYTE, CODE_C0_SECOND_BYTE};
+const uint8_t db_code[] = {CODE_FIRST_BYTE, CODE_DB_SECOND_BYTE};
+const uint8_t ce_code[] = {CODE_FIRST_BYTE, CODE_CE_SECOND_BYTE};
 
 
 uint8_t SLIP_code(uint8_t *__package, uint8_t __package_size, uint8_t *__coded_package)
