@@ -6,6 +6,7 @@
 
 
 #define MAX_BUFFER_SIZE_B                (128U)
+#define WITH_LAST_BYTE                   (1U)
 
 
 static uint8_t message_buffer[MAX_BUFFER_SIZE_B] = {0};
@@ -31,7 +32,7 @@ static uint8_t _get_package_from_buffer(uint8_t *__package)
         }
         else if(_is_started && message_buffer[byte] == END_BYTE)
         {
-            _package_size = byte;
+            _package_size = byte + WITH_LAST_BYTE;
             break;
         }
     }
