@@ -1,6 +1,8 @@
 #ifndef PROTOCOL_H
 #define PROTOCOL_H
 
+#include <stdint.h>
+
 #define PROTOCOL_REQUEST            (0x00U)
 #define PROTOCOL_ANSWER             (0x80U)
 
@@ -13,6 +15,6 @@ typedef enum PROTOCOL_code_t
     PROTOCOL_CODE_FILE = 0x02,
 }PROTOCOL_code_t;
 
-uint8_t PROTOCOL_process_package(uint8_t *__package, uint8_t *__answer_package);
+uint8_t PROTOCOL_process_package(uint8_t *__package, uint8_t __package_size, uint8_t *__answer_package);
 
 #endif /* PROTOCOL_H */

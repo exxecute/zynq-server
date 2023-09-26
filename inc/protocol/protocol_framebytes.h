@@ -11,7 +11,7 @@ typedef struct PROTOCOL_start_head_t
 {
     uint8_t start;
     uint8_t package_size;
-    PROTOCOL_code_t code;
+    uint8_t code;
 }PROTOCOL_start_head_t;
 
 typedef struct PROTOCOL_end_head_t
