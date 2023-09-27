@@ -3,15 +3,20 @@
 #include "protocol.h"
 #include "protocol_framebytes.h"
 
+#include "protocol_test.h"
+
 static uint8_t _process_answer(uint8_t *__package, uint8_t *__answer_package)
 {
     PROTOCOL_start_head_t (*_head) = (PROTOCOL_start_head_t*) __package;
     printf("[PROTOCOL] Message type: ");
+    uint8_t _answer_size = 0;
     switch(_head->code)
     {
         case(PROTOCOL_CODE_TEST):
         {
             printf("test\n");
+            
+            _answer_size = ((PROTOCOL_TEST_request_t*) __package, (PROTOCOL_TEST_answer_t*) __answer_package);
             break;
         }
         case(PROTOCOL_CODE_FILE):
@@ -25,7 +30,7 @@ static uint8_t _process_answer(uint8_t *__package, uint8_t *__answer_package)
             break;
         }
     }
-    return 0;
+    return _answer_size;
 }
 
 static uint8_t _validate_package(uint8_t *__package, uint8_t __package_size)
