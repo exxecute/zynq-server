@@ -12,6 +12,8 @@ static uint8_t _process_answer(uint8_t *__package, uint8_t *__answer_package)
         case(PROTOCOL_CODE_TEST):
         {
             printf("test\n");
+            
+            _answer_size = PROTOCOL_TEST_process_package((PROTOCOL_TEST_request_t*) __package, (PROTOCOL_TEST_answer_t*) __answer_package);
             break;
         }
         case(PROTOCOL_CODE_FILE):
