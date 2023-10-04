@@ -39,7 +39,7 @@ static void _filling_server_info(SOCKET_t *this, uint32_t __address, uint32_t __
 
     this->address.sin_family = AF_INET;
     this->address.sin_addr.s_addr = __address;
-    this->address.sin_port = __port;
+    this->address.sin_port = htons(__port);
 }
 
 void SOCKET_init_socket(SOCKET_t *this, uint32_t __address, uint32_t __port)

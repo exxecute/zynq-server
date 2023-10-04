@@ -4,7 +4,7 @@
 #include <netinet/in.h>
 
 
-#define SOCKET_MAXIMUM_BUFFER_SIZE      (2048U)
+#define SOCKET_MAXIMUM_BUFFER_SIZE      (64U)
 
 typedef struct SOCKET_t
 {
