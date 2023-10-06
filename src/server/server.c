@@ -2,7 +2,7 @@
 
 void SERVER_init_server(SERVER_t *this, char *__address, uint32_t __recieve_port, uint32_t __answer_port)
 {
-    SOCKET_init_socket(&this->recieve_socket, inet_addr("192.168.122.115"), __recieve_port);
+    SOCKET_init_socket(&this->recieve_socket, inet_addr(__address), __recieve_port);
 //    SOCKET_init_socket(&this->answer_socket, inet_addr(__address), __answer_port);
 }
 
