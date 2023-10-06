@@ -1,4 +1,6 @@
-# zynq server V0.01.26-09-23
+# zynq server V0.01.06-10-23
+Edited server logic,
+new protocol
 
 ## content
 
