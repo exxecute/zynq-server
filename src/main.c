@@ -9,7 +9,7 @@ int main(void)
     printf("%s", BANNER_MAIN);
 
     printf("Server struct size: %d\n", sizeof(SERVER_t));
-    SERVER_t server = {0}; /* need find way to know which client wroted */
+    SERVER_t server = {0}; /* need find way to know which client wrote */
     PACKAGE_API_t package_api = {0};
 
     SERVER_init_server(&server, "192.168.122.115", 22, 23);
