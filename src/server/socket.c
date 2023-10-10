@@ -55,10 +55,15 @@ void SOCKET_init_socket(SOCKET_t *this, uint32_t __address, uint32_t __port)
 
 void SOCKET_wait_message(SOCKET_t *this, CLIENT_t *__client)
 {
+	struct sockaddr _client_address;
+    char str[INET_ADDRSTRLEN];
     printf("[Socket API] wait answer...\n");
     __client->buffer_size = recvfrom(this->sockfd, __client->buffer, SOCKET_MAXIMUM_BUFFER_SIZE,
-                MSG_WAITALL, ( struct sockaddr *) &__client->address,
+                MSG_WAITALL, (struct sockaddr*) &(_client_address),
                 &__client->address_len);
+    memcpy(&__client->address, &_client_address, sizeof(struct sockaddr));
+    inet_ntop(AF_INET, &(__client->address.sin_addr), str, INET_ADDRSTRLEN);
+    printf("[Socket API] clients IP address: %s\n", str);
 }
 
 uint32_t SOCKET_send_message(SOCKET_t *this, CLIENT_t *__client, uint8_t *__buffer, uint32_t __size)
