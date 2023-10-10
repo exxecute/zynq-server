@@ -23,5 +23,6 @@ typedef struct CLIENT_t
 void SOCKET_init_socket(SOCKET_t *this, uint32_t __address, uint32_t __port);
 void SOCKET_wait_message(SOCKET_t *this, CLIENT_t *__client);
 uint32_t SOCKET_send_message(SOCKET_t *this, CLIENT_t *__client, uint8_t *__buffer, uint32_t __size);
+void SOCKET_close_socket(SOCKET_t *this);
 
 #endif /* SOCKET_H */

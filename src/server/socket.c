@@ -68,9 +68,16 @@ void SOCKET_wait_message(SOCKET_t *this, CLIENT_t *__client)
 
 uint32_t SOCKET_send_message(SOCKET_t *this, CLIENT_t *__client, uint8_t *__buffer, uint32_t __size)
 {
-    printf("[Socket API] send message...\n");
+    char str[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &(__client->address.sin_addr), str, INET_ADDRSTRLEN);
+    printf("[Socket API] send message to %s...\n", str);
     int _bytes = 0;
     _bytes = sendto(this->sockfd, (uint8_t*) __buffer, __size, MSG_WAITALL,
                 (struct sockaddr*) &__client->address, __client->address_len);
     return _bytes;
+}
+
+void SOCKET_close_socket(SOCKET_t *this)
+{
+    close(this->sockfd);
 }

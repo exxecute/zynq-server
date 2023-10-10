@@ -23,4 +23,8 @@ void SERVER_init_server(SERVER_t *this, char *__address, uint32_t __recieve_port
 
 void SERVER_wait_message(SERVER_t *this);
 
+void SERVER_send_message(SERVER_t *this, uint32_t __client_index);
+
+void SERVER_close_server(SERVER_t *this);
+
 #endif /* SERVER_H */
