@@ -70,6 +70,8 @@ uint32_t SOCKET_send_message(SOCKET_t *this, CLIENT_t *__client, uint8_t *__buff
 {
     char str[INET_ADDRSTRLEN];
     inet_ntop(AF_INET, &(__client->address.sin_addr), str, INET_ADDRSTRLEN);
+    __client->address.sin_port = this->address.sin_port;
+    __client->address.sin_family = AF_INET;
     printf("[Socket API] send message to %s...\n", str);
     int _bytes = 0;
     _bytes = sendto(this->sockfd, (uint8_t*) __buffer, __size, MSG_WAITALL,
