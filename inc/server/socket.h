@@ -15,7 +15,7 @@ typedef struct SOCKET_t
 typedef struct CLIENT_t
 {
     struct sockaddr_in address;
-    int address_len;
+    socklen_t address_len;
     uint8_t buffer[SOCKET_MAXIMUM_BUFFER_SIZE];
     uint32_t buffer_size;
 }CLIENT_t;
