@@ -11,6 +11,16 @@ typedef struct PACKAGE_API_t
     uint8_t stop_package_byte;
 }PACKAGE_API_t;
 
+typedef struct PACKAGE_head_start_t
+{
+    uint8_t head[4];
+}PACKAGE_head_start_t;
+
+typedef struct PACKAGE_head_stop_t
+{
+    uint8_t head[4];
+}PACKAGE_head_stop_t;
+
 void PACKAGE_API_init(PACKAGE_API_t *this, uint8_t* __buffer, uint16_t __buffer_size);
 
 void PACKAGE_API_find_package(PACKAGE_API_t *this);
