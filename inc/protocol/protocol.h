@@ -15,4 +15,6 @@ typedef struct PROTOCOL_stop_head_t
     struct PACKAGE_head_stop_t stop;
 }PROTOCOL_stop_head_t;
 
+uint16_t PROTOCOL_process_message(uint8_t* __buffer, uint16_t __size, uint8_t* __answer_buffer);
+
 #endif /* PROTOCOL_H */
