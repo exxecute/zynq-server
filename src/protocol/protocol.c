@@ -3,18 +3,18 @@
 
 #define CODE_INDEX  (4U)
 
-static uint8_t _test_linker_foo(uint8_t* __buffer, uint8_t __size, uint8_t* __answer_buffer)
+static uint16_t _test_linker_foo(uint8_t* __buffer, uint8_t* __answer_buffer)
 {
-    printf("[linker test] succsess!");
+    printf("[linker test] succsess!\n");
 }
 
-static uint8_t (*protocol_linker)(uint8_t* __buffer, uint8_t __size, uint8_t* __answer_buffer);
+static uint16_t (*protocol_linker)(uint8_t* __buffer, uint8_t* __answer_buffer);
 const uint8_t *massive_links[] = {_test_linker_foo,         /* 0x00 */\
                                     PROTOCOL_TEST_process   /* 0x01 */\
                                     };
 
 
-static uint8_t _get_package_code(uint8_t* __buffer)
+static uint16_t _get_package_code(uint8_t* __buffer)
 {
     return __buffer[CODE_INDEX];
 }
@@ -29,10 +29,9 @@ uint16_t PROTOCOL_process_message(uint8_t* __buffer, uint16_t __size, uint8_t* _
 
     uint8_t _package_code = _get_package_code(__buffer + package_api.start_package_byte);
 
-    uint8_t (*protocol_linker)(uint8_t* __buffer, uint8_t __size, uint8_t* __answer_buffer) = massive_links[_package_code];
+    uint16_t (*protocol_linker)(uint8_t* __buffer, uint8_t* __answer_buffer) = massive_links[1];
 
-    _answer_size = protocol_linker(__buffer + package_api.start_package_byte, \
-            package_api.start_package_byte + package_api.stop_package_byte, __answer_buffer);
+    _answer_size = protocol_linker(__buffer, __answer_buffer);
 
     return _answer_size;
 }
