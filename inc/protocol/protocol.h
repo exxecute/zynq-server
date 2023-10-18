@@ -3,6 +3,7 @@
 
 #include "package_api.h"
 
+#pragma pack(1)
 typedef struct PROTOCOL_start_head_t
 {
     struct PACKAGE_head_start_t start;

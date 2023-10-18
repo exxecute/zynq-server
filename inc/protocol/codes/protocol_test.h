@@ -3,6 +3,7 @@
 
 #include "protocol.h"
 
+#pragma pack(1)
 typedef struct PROTOCOL_TEST_request_t
 {
     struct PROTOCOL_start_head_t start;
