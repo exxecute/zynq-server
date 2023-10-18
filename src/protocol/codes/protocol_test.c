@@ -13,7 +13,7 @@
 
 void _print_test_byte(PROTOCOL_TEST_request_t *this)
 {
-    printf("[TEST PACKAGE] test byte: %X", this->test_byte);
+    printf("[TEST PACKAGE] test byte: %X\n", this->test_byte);
 }
 
 void _generate_answer(PROTOCOL_TEST_answer_t *this)
