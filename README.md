@@ -1,4 +1,10 @@
-# zynq server V0.01.26-09-23
+# zynq server V0.01.18-10-23
+
+- New protocol
+
+- Test command protocol
+
+- Fixed socket getting address
 
 ## content
 
