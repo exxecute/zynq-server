@@ -26,6 +26,7 @@ static uint8_t _validate_head(const uint8_t *__buffer, const uint8_t *__head, co
 
 void PACKAGE_API_init(PACKAGE_API_t *this, uint8_t* __buffer, uint16_t __buffer_size)
 {
+    memset(this, 0, sizeof(PACKAGE_API_t));
     memcpy(this->buffer, __buffer, __buffer_size);
     this->buffer_size = __buffer_size;
 }
@@ -53,4 +54,11 @@ void PACKAGE_API_find_package(PACKAGE_API_t *this)
         }
 
     }
+}
+
+void PACKAGE_API_pack(uint8_t *__package, uint16_t __size)
+{
+    uint16_t _start_of_stop_combination = __size - STOP_COMBINATION_SIZE;
+    memcpy(__package, START_PACKAGE_COMBINATION, START_COMBINATION_SIZE);
+    memcpy(__package + _start_of_stop_combination, STOP_PACKAGE_COMBINATION, STOP_COMBINATION_SIZE);
 }

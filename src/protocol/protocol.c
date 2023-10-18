@@ -33,5 +33,7 @@ uint16_t PROTOCOL_process_message(uint8_t* __buffer, uint16_t __size, uint8_t* _
 
     _answer_size = protocol_linker(__buffer, __answer_buffer);
 
+    PACKAGE_API_pack(__answer_buffer, _answer_size);
+
     return _answer_size;
 }

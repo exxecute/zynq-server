@@ -25,4 +25,6 @@ void PACKAGE_API_init(PACKAGE_API_t *this, uint8_t* __buffer, uint16_t __buffer_
 
 void PACKAGE_API_find_package(PACKAGE_API_t *this);
 
+void PACKAGE_API_pack(uint8_t *__package, uint16_t __size);
+
 #endif /* PACKAGE_API_H */
