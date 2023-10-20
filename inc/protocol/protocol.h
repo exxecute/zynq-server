@@ -8,6 +8,11 @@
 
 #define PROTOCOL_GET_ANSWER(code)    (code | PROTOCOL_ANSWER)
 #define PROTOCOL_GET_REQUEST(code)   (code | PROTOCOL_REQUEST)
+
+#define PROTOCOL_PACKAGE_CODE(index)                           (index * 2U)
+#define PROTOCOL_PACKAGE_FOO(index)                            (PROTOCOL_PACKAGE_CODE(index) + 1)
+#define PROTOCOL_PACKAGE_MASSIVE(code, processing_foo)         (code, processing_foo)
+
 #pragma pack(1)
 typedef struct PROTOCOL_start_head_t
 {

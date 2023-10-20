@@ -9,9 +9,7 @@ static uint16_t _test_linker_foo(uint8_t* __buffer, uint8_t* __answer_buffer)
 }
 
 static uint16_t (*protocol_linker)(uint8_t* __buffer, uint8_t* __answer_buffer);
-const uint8_t *massive_links[] = {_test_linker_foo,         /* 0x00 */\
-                                    PROTOCOL_TEST_process   /* 0x01 */\
-                                    };
+const uint8_t *massive_links[] = {PROTOCOL_TEST_PACKAGE_MASSIVE};
 
 
 static uint16_t _get_package_code(uint8_t* __buffer)
