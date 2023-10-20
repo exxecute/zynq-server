@@ -3,13 +3,8 @@
 
 #define CODE_INDEX  (4U)
 
-static uint16_t _test_linker_foo(uint8_t* __buffer, uint8_t* __answer_buffer)
-{
-    printf("[linker test] succsess!\n");
-}
-
 static uint16_t (*protocol_linker)(uint8_t* __buffer, uint8_t* __answer_buffer);
-const uint8_t *massive_links[] = {PROTOCOL_TEST_PACKAGE_MASSIVE};
+const uint8_t *massive_links[] = {PROTOCOL_TEST_PACKAGE_CODE, PROTOCOL_TEST_PACKAGE_FOO};
 
 
 static uint16_t _get_package_code(uint8_t* __buffer)
