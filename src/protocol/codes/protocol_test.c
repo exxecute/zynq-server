@@ -2,13 +2,6 @@
 
 #define TEST_BYTE_ANSWER    (0x55U)
 
-#define CODE                (0x01U)
-#define ANSWER              (0X80U)
-#define REQUEST             (0x00U)
-
-#define CODE_REQUEST        (CODE + REQUEST)
-#define CODE_ANSWER         (CODE + ANSWER)
-
 #define ANSWER_SIZE         (0x0001U)
 
 void _print_test_byte(PROTOCOL_TEST_request_t *this)
@@ -18,7 +11,7 @@ void _print_test_byte(PROTOCOL_TEST_request_t *this)
 
 void _generate_answer(PROTOCOL_TEST_answer_t *this)
 {
-    this->start.command_code = CODE_ANSWER;
+    this->start.command_code = PROTOCOL_TEST_CODE_ANSWER;
     this->start.package_size = ANSWER_SIZE;
 
     this->test_byte = TEST_BYTE_ANSWER;
