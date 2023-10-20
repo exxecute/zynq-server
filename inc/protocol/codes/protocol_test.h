@@ -3,6 +3,14 @@
 
 #include "protocol.h"
 
+#define PROTOCOL_TEST_CODE              (0x01U)
+
+#define PROTOCOL_TEST_CODE_ANSWER       PROTOCOL_GET_ANSWER(0x01U)
+#define PROTOCOL_TEST_CODE_REQUEST      PROTOCOL_GET_REQUEST(0x01U)
+
+#define PROTOCOL_TEST_PACKAGE_CODE      (PROTOCOL_TEST_CODE_REQUEST)
+#define PROTOCOL_TEST_PACKAGE_FOO       (PROTOCOL_TEST_process)
+
 #pragma pack(1)
 typedef struct PROTOCOL_TEST_request_t
 {
