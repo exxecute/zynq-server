@@ -1,0 +1,3 @@
+#ifndef PROTOCOL_FILE_H
+#define PROTOCOL_FILE_H
+#endif /* PROTOCOL_FILE_H */
