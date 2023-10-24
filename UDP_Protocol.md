@@ -74,6 +74,7 @@ Code for answer increments 0x80
 | 0x02   | Command code                |
 | 0x01   | Package size                |
 | 8-bit  | [Document code](#documents) |
+| 32-bit | Document byte offset        |
 | 32-bit | Stop byte combination       |
 
 #### Documents 
