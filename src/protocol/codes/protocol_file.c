@@ -1,4 +1,8 @@
 #include "protocol_file.h"
+#include "file_reader.h"
+
+
+#define FILE_NAME   "test.txt"
 
 
 static uint16_t _optimize_answer(uint8_t *__answer_buffer)
@@ -14,7 +18,9 @@ static void _generate_answer(PROTOCOL_FILE_answer_t *this)
 
 static void _fill_answer_buffer(uint8_t *__answer_buffer, uint8_t __file_code, uint32_t __file_offset)
 {
+    FILE_READER_t _file_reader = {0};
 
+    FILE_READER_init(&_file_reader, FILE_NAME, __file_offset);
 }
 
 uint16_t PROTOCOL_FILE_process(PROTOCOL_FILE_request_t* __buffer, PROTOCOL_FILE_answer_t* __answer_buffer)
